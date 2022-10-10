@@ -9,7 +9,9 @@ frame = read_pictures(['frame0.jpg'])
 detector = Detector(au_model = "svm")
 detected_faces = detector.detect_faces(frame)
 
-detected_landmarks = detector.detect_landmarks(frame, detected_faces)
+detected_landmarks = detector.detect_landmarks(frame, detected_faces)[0][0].tolist()
+
+print(detected_landmarks)
 
 """
 detected_aus = detector.detect_aus(frame, detected_landmarks).flatten()
